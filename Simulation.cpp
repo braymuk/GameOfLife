@@ -20,11 +20,32 @@ void Simulation::runSimulation() {
 	World world;
 	world.initWorld();
 
+	Clock clock;
+	int i = 1;
 	while (window.isOpen()) {
+		float Time = clock.getElapsedTime().asSeconds();
 		window.clear(Color::White);
+		
+
+		
+		if (Time > i) {
+			//cout << Time << endl;
+			i = i + simulationRate;
+			world.updateWorld();
+
+		}
+
 		world.renderWorld(window);
 
+		
+
+
 		window.display();
+
+		
+		
+		
+		
 
 
 		int xClick, yClick = 0;
@@ -41,6 +62,9 @@ void Simulation::runSimulation() {
 				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= xResolution) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= yResolution)) {
 					xClick = evnt.mouseButton.x / 64;
 					yClick = evnt.mouseButton.y / 64;
+					//cout << xClick << endl;
+					//cout << yClick << endl;
+					cout << world.countNeighbors(xClick, yClick) << endl;
 
 					world.getWorldPtr(xClick, yClick)->setIsAlive(true);
 				}

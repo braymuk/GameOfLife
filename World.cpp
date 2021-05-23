@@ -19,12 +19,12 @@ Cell* World::getWorldPtr(int x, int y) {
 
 //Initializes world as dead
 void World::initWorld() {
-	
+
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			world[i][j] = new Cell;
 			world[i][j]->setIsAlive(false);
-			world[i][j]->setPosition(float(i * (xResolution/WORLDSIZE)), float(j * (yResolution/WORLDSIZE)));
+			world[i][j]->setPosition(float(i * (xResolution / WORLDSIZE)), float(j * (yResolution / WORLDSIZE)));
 		}
 	}
 }
@@ -35,12 +35,49 @@ void World::renderWorld(RenderWindow& window) {
 			RectangleShape square(Vector2f((xResolution / WORLDSIZE), (yResolution / WORLDSIZE)));
 			if (world[i][j]->getIsAlive()) {
 				world[i][j]->setFillColor(Color::White);
-				std::cout << "isAlive" << std::endl;
 			}
 			else {
 				world[i][j]->setFillColor(Color::Blue);
 			}
 			window.draw(*(world[i][j]));
+		}
+	}
+}
+
+int World::countNeighbors(int x, int y) {
+	int neighborCellCount = 0;
+	
+	for (int i = 0; i < WORLDSIZE; i++) {
+		for (int j = 0; j < WORLDSIZE; j++) {
+			if ((abs(x - i) <= 1 && abs(y - j) <= 1) && (getWorldPtr(i, j)->getIsAlive() == true)) {
+				neighborCellCount++;
+			}
+		}
+	}
+	return neighborCellCount;
+}
+
+
+void World::updateWorld() {
+	//int neighborCellCount = 0;
+
+	for (int i = 0; i < WORLDSIZE; i++) {
+		for (int j = 0; j < WORLDSIZE; j++) {
+			//Check neighbors
+			int neighborCellCount = this->countNeighbors(i,j);
+
+			if (world[i][j]->getIsAlive()) {
+				if (neighborCellCount < 2) {
+					world[i][j]->setIsAlive(false);
+				}
+				if (neighborCellCount > 3) {
+					world[i][j]->setIsAlive(false);
+				}
+			}
+			else if (neighborCellCount == 3) {
+				world[i][j]->setIsAlive(true);
+			}
+
 		}
 	}
 }

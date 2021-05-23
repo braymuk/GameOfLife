@@ -15,6 +15,10 @@ public:
 	void initWorld();
 	void renderWorld(RenderWindow& window);
 
+	int countNeighbors(int x, int y);
+	void updateWorld();
+	
+
 private:
 	Cell* world[WORLDSIZE][WORLDSIZE];
 };

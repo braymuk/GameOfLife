@@ -1,6 +1,6 @@
 #include "World.h"
 
-
+#define simulationRate 1
 
 class Simulation {
 public:
