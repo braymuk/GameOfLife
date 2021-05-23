@@ -1,8 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
 
 using namespace sf;
+using std::cout;
+using std::endl;
 
-class Cell : public Sprite{
+class Cell : public RectangleShape{
 public:
 	Cell();
 

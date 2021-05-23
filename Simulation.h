@@ -1,16 +1,16 @@
 #include "World.h"
-#include <iostream>
+
 
 class Simulation {
 public:
 	//Handles world initlization
-	Simulation();
+	//Simulation();
 
-	void setWorld(World* world);
-	World* getWorld();
+	//void setWorld(World* world);
+	//World* getWorld();
 
 	void runSimulation();
 
 private:
-	World* world;
+	//World* world;
 };

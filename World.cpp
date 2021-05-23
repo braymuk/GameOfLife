@@ -20,10 +20,11 @@ Cell* World::getWorldPtr(int x, int y) {
 //Initializes world as dead
 void World::initWorld() {
 	Cell* tempCell = new Cell;
-	tempCell->setIsAlive(false);
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			world[i][j] = tempCell;
+			world[i][j]->setIsAlive(false);
+			world[i][j]->setPosition(float(i * 64), float(j * 64));
 		}
 	}
 }
@@ -31,7 +32,16 @@ void World::initWorld() {
 void World::renderWorld(RenderWindow& window) {
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
-			world[i][j]->draw(window);
+			RectangleShape square(Vector2f(64, 64));
+			if (world[i][j]->getIsAlive()) {
+				world[i][j]->setFillColor(Color::White);
+				std::cout << "isAlive" << std::endl;
+			}
+			else {
+				world[i][j]->setFillColor(Color::Blue);
+			}
+			//world[i][j]->draw(window);
+			window.draw(*(world[i][j]));
 		}
 	}
 }

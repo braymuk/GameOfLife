@@ -1,24 +1,28 @@
 #include "Simulation.h"
 
 
-Simulation::Simulation() {
-	World* tempWorld = new World;
-	tempWorld->initWorld();
-	world = tempWorld;
-}
-
-void Simulation::setWorld(World* newWorld) {
-	world = newWorld;
-}
-World* Simulation::getWorld() {
-	return world;
-}
+//Simulation::Simulation() {
+//	//World* tempWorld = new World;
+//	//tempWorld->initWorld();
+//	//world = tempWorld;
+//}
+//
+//void Simulation::setWorld(World* newWorld) {
+//	world = newWorld;
+//}
+//World* Simulation::getWorld() {
+//	return world;
+//}
 
 void Simulation::runSimulation() {
 	RenderWindow window(VideoMode(1024, 1024), "Game of Life", Style::Close | Style::Titlebar);
 
+	World world;
+	world.initWorld();
+
 	while (window.isOpen()) {
-		getWorld()->renderWorld(window);
+		window.clear(Color::White);
+		world.renderWorld(window);
 
 		window.display();
 
