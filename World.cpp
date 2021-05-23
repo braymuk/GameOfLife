@@ -40,7 +40,6 @@ void World::renderWorld(RenderWindow& window) {
 			else {
 				world[i][j]->setFillColor(Color::Blue);
 			}
-			//world[i][j]->draw(window);
 			window.draw(*(world[i][j]));
 		}
 	}

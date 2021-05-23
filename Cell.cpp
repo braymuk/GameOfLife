@@ -13,8 +13,3 @@ void Cell::setIsAlive(bool tf) {
 bool Cell::getIsAlive() {
 	return isAlive;
 }
-
-void Cell::draw(RenderWindow& window) {
-	//window.draw(*(dynamic_cast<RectangleShape*>(this)));
-	window.draw(*(this));
-}

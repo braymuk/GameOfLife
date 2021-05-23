@@ -13,8 +13,6 @@ public:
 	void setIsAlive(bool tf);
 	bool getIsAlive();
 
-	void draw(RenderWindow& window);
-
 private:
 	bool isAlive;
 };
