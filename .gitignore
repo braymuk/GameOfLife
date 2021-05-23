@@ -1,0 +1,3 @@
+# Ignoring Project Files
+/.vs/*
+/GameOfLifeProject/*
