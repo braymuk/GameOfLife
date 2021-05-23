@@ -19,10 +19,10 @@ Cell* World::getWorldPtr(int x, int y) {
 
 //Initializes world as dead
 void World::initWorld() {
-	Cell* tempCell = new Cell;
+	
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
-			world[i][j] = tempCell;
+			world[i][j] = new Cell;
 			world[i][j]->setIsAlive(false);
 			world[i][j]->setPosition(float(i * 64), float(j * 64));
 		}
