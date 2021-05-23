@@ -24,7 +24,7 @@ void World::initWorld() {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			world[i][j] = new Cell;
 			world[i][j]->setIsAlive(false);
-			world[i][j]->setPosition(float(i * 64), float(j * 64));
+			world[i][j]->setPosition(float(i * (xResolution/WORLDSIZE)), float(j * (yResolution/WORLDSIZE)));
 		}
 	}
 }
@@ -32,7 +32,7 @@ void World::initWorld() {
 void World::renderWorld(RenderWindow& window) {
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
-			RectangleShape square(Vector2f(64, 64));
+			RectangleShape square(Vector2f((xResolution / WORLDSIZE), (yResolution / WORLDSIZE)));
 			if (world[i][j]->getIsAlive()) {
 				world[i][j]->setFillColor(Color::White);
 				std::cout << "isAlive" << std::endl;

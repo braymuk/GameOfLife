@@ -15,7 +15,7 @@
 //}
 
 void Simulation::runSimulation() {
-	RenderWindow window(VideoMode(1024, 1024), "Game of Life", Style::Close | Style::Titlebar);
+	RenderWindow window(VideoMode(xResolution, yResolution), "Game of Life", Style::Close | Style::Titlebar);
 
 	World world;
 	world.initWorld();
@@ -38,7 +38,7 @@ void Simulation::runSimulation() {
 				std::cout << evnt.text.unicode << std::endl;
 				break;
 			case Event::MouseButtonPressed:
-				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= 1024) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= 1024)) {
+				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= xResolution) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= yResolution)) {
 					xClick = evnt.mouseButton.x / 64;
 					yClick = evnt.mouseButton.y / 64;
 
