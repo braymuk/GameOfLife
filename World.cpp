@@ -50,7 +50,11 @@ int World::countNeighbors(int x, int y) {
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			if ((abs(x - i) <= 1 && abs(y - j) <= 1) && (getWorldPtr(i, j)->getIsAlive() == true)) {
-				neighborCellCount++;
+			
+					if (x != i || y != j) {
+						neighborCellCount++;
+					}
+				
 			}
 		}
 	}

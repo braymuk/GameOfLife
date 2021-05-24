@@ -3,7 +3,7 @@
 Cell::Cell() {
 	isAlive = false;
 	setFillColor(Color::Blue);
-	setSize(Vector2f(64, 64));
+	setSize(Vector2f(WORLDSIZE, WORLDSIZE));
 }
 
 void Cell::setIsAlive(bool tf) {

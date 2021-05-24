@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#define WORLDSIZE 32
+
 
 using namespace sf;
 using std::cout;

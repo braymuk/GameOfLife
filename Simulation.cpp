@@ -22,6 +22,7 @@ void Simulation::runSimulation() {
 
 	Clock clock;
 	int i = 1;
+	
 	while (window.isOpen()) {
 		float Time = clock.getElapsedTime().asSeconds();
 		window.clear(Color::White);
@@ -60,8 +61,8 @@ void Simulation::runSimulation() {
 				break;
 			case Event::MouseButtonPressed:
 				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= xResolution) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= yResolution)) {
-					xClick = evnt.mouseButton.x / 64;
-					yClick = evnt.mouseButton.y / 64;
+					xClick = evnt.mouseButton.x / WORLDSIZE;
+					yClick = evnt.mouseButton.y / WORLDSIZE;
 					//cout << xClick << endl;
 					//cout << yClick << endl;
 					cout << world.countNeighbors(xClick, yClick) << endl;
