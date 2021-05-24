@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define WORLDSIZE 32
+#define INIT_WORLDSIZE 32
 
 
 using namespace sf;
 using std::cout;
 using std::endl;
+using std::vector;
 
 class Cell : public RectangleShape{
 public:

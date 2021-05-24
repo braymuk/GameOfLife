@@ -29,7 +29,7 @@ void Simulation::runSimulation() {
 		float Time = clock.getElapsedTime().asSeconds();
 		window.clear(Color::White);
 		
-		world.renderWorld(window);
+		
 		
 		if (Time > i) {
 			i = i + simulationRate;
@@ -38,7 +38,8 @@ void Simulation::runSimulation() {
 			}
 			
 		}
-	
+		
+		world.renderWorld(window);
 
 		
 
@@ -57,13 +58,13 @@ void Simulation::runSimulation() {
 				break;
 			case Event::MouseButtonPressed:
 				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= xResolution) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= yResolution)) {
-					xClick = evnt.mouseButton.x / WORLDSIZE;
-					yClick = evnt.mouseButton.y / WORLDSIZE;
+					xClick = evnt.mouseButton.x / world.getWorldSize();
+					yClick = evnt.mouseButton.y / world.getWorldSize();
 					//cout << xClick << endl;
 					//cout << yClick << endl;
 					cout << world.countNeighbors(xClick, yClick) << endl;
 
-					world.getWorldPtr(xClick, yClick)->setIsAlive(!world.getWorldPtr(xClick,yClick)->getIsAlive());
+					world.getWorldCell(xClick, yClick).setIsAlive(!world.getWorldCell(xClick,yClick).getIsAlive());
 				}
 				break;
 			case Event::KeyPressed:

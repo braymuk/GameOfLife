@@ -9,8 +9,11 @@ class World {
 public:
 	World();
 
-	void setWorldPtr(int x, int y, Cell* ptr);
-	Cell* getWorldPtr(int x, int y);
+	void setWorldCell(int x, int y, Cell ptr);
+	Cell getWorldCell(int  x, int  y);
+
+	void setWorldSize(int val);
+	int getWorldSize();
 
 	void initWorld();
 	void renderWorld(RenderWindow& window);
@@ -20,5 +23,6 @@ public:
 	
 
 private:
-	Cell* world[WORLDSIZE][WORLDSIZE];
+	vector<vector<Cell>> world;
+	int worldSize;
 };

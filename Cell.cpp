@@ -1,9 +1,9 @@
 #include "Cell.h"
 
 Cell::Cell() {
-	isAlive = false;
+	setIsAlive(false);
 	setFillColor(Color::Blue);
-	setSize(Vector2f(WORLDSIZE, WORLDSIZE));
+	setSize(Vector2f(INIT_WORLDSIZE, INIT_WORLDSIZE));
 }
 
 void Cell::setIsAlive(bool tf) {
