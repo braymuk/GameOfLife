@@ -19,7 +19,6 @@ Cell* World::getWorldPtr(int x, int y) {
 
 //Initializes world as dead
 void World::initWorld() {
-
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			world[i][j] = new Cell;
@@ -63,14 +62,24 @@ int World::countNeighbors(int x, int y) {
 
 
 void World::updateWorld() {
-	//int neighborCellCount = 0;
+	World initialWorld;
+
+	for (int i = 0; i < WORLDSIZE; i++) {
+		for (int j = 0; j < WORLDSIZE; j++) {
+			initialWorld.setWorldPtr(i, j, world[i][j]);
+		}
+	}
+
+	
+	
 
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			//Check neighbors
-			int neighborCellCount = this->countNeighbors(i,j);
+		
+			int neighborCellCount = initialWorld.countNeighbors(i, j);
 
-			if (world[i][j]->getIsAlive()) {
+			if (initialWorld.getWorldPtr(i,j)->getIsAlive()) {
 				if (neighborCellCount < 2) {
 					world[i][j]->setIsAlive(false);
 				}
