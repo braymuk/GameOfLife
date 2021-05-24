@@ -22,6 +22,8 @@ void Simulation::runSimulation() {
 
 	Clock clock;
 	int i = 1;
+
+	bool isPaused = false;
 	
 	while (window.isOpen()) {
 		float Time = clock.getElapsedTime().asSeconds();
@@ -30,23 +32,19 @@ void Simulation::runSimulation() {
 
 		
 		if (Time > i) {
-			//cout << Time << endl;
 			i = i + simulationRate;
-			world.updateWorld();
-
+			if (!isPaused) {
+				world.updateWorld();
+			}
+			
 		}
+		
+	
+
 
 		world.renderWorld(window);
 
-		
-
-
 		window.display();
-
-		
-		
-		
-		
 
 
 		int xClick, yClick = 0;
@@ -67,10 +65,13 @@ void Simulation::runSimulation() {
 					//cout << yClick << endl;
 					cout << world.countNeighbors(xClick, yClick) << endl;
 
-					world.getWorldPtr(xClick, yClick)->setIsAlive(true);
+					world.getWorldPtr(xClick, yClick)->setIsAlive(!world.getWorldPtr(xClick,yClick)->getIsAlive());
 				}
-
 				break;
+			case Event::KeyPressed:
+				if (evnt.key.code == Keyboard::Space) {
+					isPaused = !isPaused;
+				}
 			}
 
 		}
