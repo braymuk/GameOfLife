@@ -1,4 +1,4 @@
 # GameOfLife
 
 To Do:
-- Add cell behavior
+- Find logic bug

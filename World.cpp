@@ -69,28 +69,39 @@ void World::updateWorld() {
 			initialWorld.setWorldPtr(i, j, world[i][j]);
 		}
 	}
-
-	
-	
-
+	int neighborCellCount = 0;
 	for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			//Check neighbors
 		
-			int neighborCellCount = initialWorld.countNeighbors(i, j);
+			neighborCellCount = initialWorld.countNeighbors(i, j);
 
-			if (initialWorld.getWorldPtr(i,j)->getIsAlive()) {
+			if (neighborCellCount < 2) {
+				world[i][j]->setIsAlive(false);
+			}
+			else if (neighborCellCount == 3) {
+				world[i][j]->setIsAlive(true);
+			}
+			else if (neighborCellCount > 3) {
+				world[i][j]->setIsAlive(false);
+			}
+
+			/*if (initialWorld.getWorldPtr(i,j)->getIsAlive()) {
 				if (neighborCellCount < 2) {
 					world[i][j]->setIsAlive(false);
 				}
 				if (neighborCellCount > 3) {
 					world[i][j]->setIsAlive(false);
 				}
+				if (neighborCellCount == 2 || neighborCellCount == 3) {
+					world[i][j]->setIsAlive(true);
+				}
 			}
-			else if (neighborCellCount == 3) {
-				world[i][j]->setIsAlive(true);
-			}
-
+			if (!initialWorld.getWorldPtr(i, j)->getIsAlive()) {
+				if (neighborCellCount == 3) {
+					world[i][j]->setIsAlive(true);
+				}
+			}*/
 		}
 	}
 }

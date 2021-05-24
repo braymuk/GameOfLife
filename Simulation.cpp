@@ -29,7 +29,7 @@ void Simulation::runSimulation() {
 		float Time = clock.getElapsedTime().asSeconds();
 		window.clear(Color::White);
 		
-
+		world.renderWorld(window);
 		
 		if (Time > i) {
 			i = i + simulationRate;
@@ -38,11 +38,9 @@ void Simulation::runSimulation() {
 			}
 			
 		}
-		
 	
 
-
-		world.renderWorld(window);
+		
 
 		window.display();
 
