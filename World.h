@@ -9,6 +9,8 @@ class World {
 public:
 	World();
 
+	World(const World &w1);
+
 	void setWorldPtr(int x, int y, Cell* ptr);
 	Cell* getWorldPtr(int x, int y);
 

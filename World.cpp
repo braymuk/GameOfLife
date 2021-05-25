@@ -9,6 +9,21 @@ World::World() {
 	}
 }
 
+World::World(const World& w1) {
+
+	Cell tempArray[WORLDSIZE][WORLDSIZE];
+	for (int i = 0; i < WORLDSIZE; i++) {
+		for (int j = 0; j < WORLDSIZE; j++) {
+			tempArray[i][j] = *(w1.world[i][j]);
+		}
+	}
+	for (int i = 0; i < WORLDSIZE; i++) {
+		for (int j = 0; j < WORLDSIZE; j++) {
+			this->setWorldPtr(i, j, &tempArray[i][j]);
+		}
+	}
+}
+
 void World::setWorldPtr(int x, int y, Cell* ptr) {
 	world[x][y] = ptr;
 }
@@ -62,15 +77,15 @@ int World::countNeighbors(int x, int y) {
 
 
 void World::updateWorld() {
-	World initialWorld;
+	World initialWorld = *(this);
 
-	for (int i = 0; i < WORLDSIZE; i++) {
+	/*for (int i = 0; i < WORLDSIZE; i++) {
 		for (int j = 0; j < WORLDSIZE; j++) {
 			initialWorld.setWorldPtr(i, j, world[i][j]);
+			
 		}
 	}
-
-	
+	initialWorld = */
 	
 
 	for (int i = 0; i < WORLDSIZE; i++) {
