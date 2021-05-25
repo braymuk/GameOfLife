@@ -51,7 +51,7 @@ void World::renderWorld(RenderWindow& window) {
 				world[i][j]->setFillColor(Color::White);
 			}
 			else {
-				world[i][j]->setFillColor(Color::Blue);
+				world[i][j]->setFillColor(Color::Black);
 			}
 			window.draw(*(world[i][j]));
 		}

@@ -2,8 +2,7 @@
 
 
 
-#define xResolution 1024
-#define yResolution 1024
+
 
 class World {
 public:

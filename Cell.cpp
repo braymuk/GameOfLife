@@ -2,8 +2,8 @@
 
 Cell::Cell() {
 	isAlive = false;
-	setFillColor(Color::Blue);
-	setSize(Vector2f(WORLDSIZE, WORLDSIZE));
+	setFillColor(Color::Black);
+	setSize(Vector2f(xResolution/WORLDSIZE, yResolution/ WORLDSIZE));
 }
 
 void Cell::setIsAlive(bool tf) {

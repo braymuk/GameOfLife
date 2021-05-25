@@ -6,6 +6,7 @@ This is my own implementation written in **C++**.
 With a given initial state, the game requires no player input in order to evolve and create interesting patterns.
 
 ![](R-Pentomino-Example.gif)
+^ Example of a pattern called the **R-Pentomino**.
 
 The game only has 4 rules:
 1. Any live cell with fewer than 2 live neighbors dies, as if caused by under-population.

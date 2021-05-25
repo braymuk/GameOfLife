@@ -2,6 +2,8 @@
 #include <iostream>
 
 #define WORLDSIZE 32
+#define xResolution 1024
+#define yResolution 1024
 
 
 using namespace sf;
