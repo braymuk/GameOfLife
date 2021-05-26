@@ -47,6 +47,7 @@ void Simulation::runSimulation() {
 		window.display();
 
 
+
 		int xClick, yClick = 0;
 		Event evnt;
 		while (window.pollEvent(evnt)) {
