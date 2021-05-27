@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define WORLDSIZE 32
+#define WORLDSIZE 16
 #define xResolution 1024
 #define yResolution 1024
 
