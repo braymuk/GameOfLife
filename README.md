@@ -19,4 +19,7 @@ Controls:
 - Hit the spacebar to pause the simulation.
 
 To Do:
-- Make board infinite
+- Make board infinite.
+
+Known Bugs:
+- Game gets weird / doesn't work in the bottom right cell of the board.

@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define WORLDSIZE 16
-#define xResolution 1024
-#define yResolution 1024
+#define WORLDSIZE 4 //current max worldsize is somewhere in the 55-59 range
+#define xResolution 400
+#define yResolution 400
 
 
 using namespace sf;

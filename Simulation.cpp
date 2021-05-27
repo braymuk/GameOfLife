@@ -62,9 +62,9 @@ void Simulation::runSimulation() {
 				if ((evnt.mouseButton.x >= 0 && evnt.mouseButton.x <= xResolution) && (evnt.mouseButton.y >= 0 && evnt.mouseButton.y <= yResolution)) {
 					xClick = (evnt.mouseButton.x / (float)xResolution) * ((float) WORLDSIZE);
 					yClick = (evnt.mouseButton.y / (float)yResolution) * ((float)WORLDSIZE);
-					cout << xClick << endl;
-					cout << yClick << endl;
-					//cout << world.countNeighbors(xClick, yClick) << endl;
+				//	cout << xClick << endl;
+				//  cout << yClick << endl;
+					cout << world.countNeighbors(xClick, yClick) << endl;
 
 					world.getWorldPtr(xClick, yClick)->setIsAlive(!world.getWorldPtr(xClick,yClick)->getIsAlive());
 				}
